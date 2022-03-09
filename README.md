@@ -1,5 +1,7 @@
 # auth-api
 ## follow the instructions for setup
+open your terminal or cmd
+<br/>
 
 clone the repo
 ```#!/bin/bash
