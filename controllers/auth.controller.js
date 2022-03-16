@@ -1,6 +1,6 @@
 //CRUD
 const user = require('../models/User.model');
-
+//express js
 //create
 exports.createOne = async (req, res) => {
   const doc = new user({
@@ -18,6 +18,16 @@ exports.createOne = async (req, res) => {
 //getoneuser
 exports.getOne = async (req, res) => {
   //get only one user
+  try {
+    const doc = await user.findOne({ ...req._id });
+    if (doc !== req._id) {
+      res.status(400).json({ message: 'no such user' });
+    }
+    res.status(200).json({ data: doc });
+  } catch (err) {
+    //
+    res.status(400).console.log(err);
+  }
 };
 //read
 exports.getAll = async (req, res) => {
