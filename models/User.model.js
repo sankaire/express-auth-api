@@ -15,6 +15,11 @@ const User = mongoose.Schema({
     type: String,
     max: 10,
   },
+  isAdmin: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
 });
 
 const user = mongoose.model('user', User);
